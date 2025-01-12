@@ -4,7 +4,6 @@ from torchvision.models import googlenet, GoogLeNet_Weights
 import torch.nn as nn
 from torchvision import transforms
 from PIL import Image
-import psutil
 
 # Function to initialize the model
 def initialize_model():
