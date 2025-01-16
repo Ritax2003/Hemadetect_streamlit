@@ -41,19 +41,19 @@ def preprocess_image(img_path):
     return img
 
 # Resource usage functions
-def get_cpu_memory_usage():
-    process = psutil.Process()
-    cpu_usage = process.cpu_percent(interval=1)
-    memory_info = process.memory_info()
-    memory_usage = memory_info.rss / (1024 ** 2)  # Convert bytes to MB
-    return cpu_usage, memory_usage
+# def get_cpu_memory_usage():
+#     process = psutil.Process()
+#     cpu_usage = process.cpu_percent(interval=1)
+#     memory_info = process.memory_info()
+#     memory_usage = memory_info.rss / (1024 ** 2)  # Convert bytes to MB
+#     return cpu_usage, memory_usage
 
-def get_gpu_memory_usage():
-    if torch.cuda.is_available():
-        gpu_memory_allocated = torch.cuda.memory_allocated() / (1024 ** 2)  # Convert bytes to MB
-        gpu_memory_reserved = torch.cuda.memory_reserved() / (1024 ** 2)  # Convert bytes to MB
-        return gpu_memory_allocated, gpu_memory_reserved
-    return None, None
+#def get_gpu_memory_usage():
+#     if torch.cuda.is_available():
+#         gpu_memory_allocated = torch.cuda.memory_allocated() / (1024 ** 2)  # Convert bytes to MB
+#         gpu_memory_reserved = torch.cuda.memory_reserved() / (1024 ** 2)  # Convert bytes to MB
+#         return gpu_memory_allocated, gpu_memory_reserved
+#     return None, None
 
 # Streamlit app
 # Main function
@@ -87,8 +87,8 @@ if selected =="HemaDetect - Blood Cancer Prediction":
         img_tensor = img_tensor.to(device)
 
         # Get resource usage before prediction
-        cpu_usage_before, memory_usage_before = get_cpu_memory_usage()
-        gpu_memory_allocated_before, gpu_memory_reserved_before = get_gpu_memory_usage()
+        # cpu_usage_before, memory_usage_before = get_cpu_memory_usage()
+        # gpu_memory_allocated_before, gpu_memory_reserved_before = get_gpu_memory_usage()
 
         # Make prediction
         with torch.no_grad():
@@ -102,8 +102,8 @@ if selected =="HemaDetect - Blood Cancer Prediction":
         confidence_score = confidence.item()
 
         # Get resource usage after prediction
-        cpu_usage_after, memory_usage_after = get_cpu_memory_usage()
-        gpu_memory_allocated_after, gpu_memory_reserved_after = get_gpu_memory_usage()
+        # cpu_usage_after, memory_usage_after = get_cpu_memory_usage()
+        # gpu_memory_allocated_after, gpu_memory_reserved_after = get_gpu_memory_usage()
 
         # Display results
         st.subheader("Prediction Results")
