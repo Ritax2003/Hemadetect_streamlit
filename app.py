@@ -4,7 +4,6 @@ from torchvision.models import googlenet, GoogLeNet_Weights
 import torch.nn as nn
 from torchvision import transforms
 from PIL import Image
-import psutil
 from streamlit_option_menu import option_menu
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
