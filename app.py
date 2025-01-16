@@ -60,7 +60,7 @@ def get_gpu_memory_usage():
 st.title("HemaDetect - Blood Cancer Prediction")
 if __name__ == '__main__':
     with st.sidebar:
-        selected = option_menu('Blood Cancer Predictior',
+        selected = option_menu('Blood Cancer Predictor',
                           ['HemaDetect - Blood Cancer Prediction',
                            #'Our Prediction Records',
                            'About Us'],
