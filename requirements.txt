@@ -5,3 +5,5 @@ django
 djangorestframework
 torch
 torchvision
+streamlit-option-menu
+reportlab
