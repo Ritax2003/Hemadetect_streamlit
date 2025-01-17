@@ -100,16 +100,20 @@ if selected =="HemaDetect - Blood Cancer Prediction":
         labels_map = {0: 'Benign', 1: 'Early_Pre_B', 2: 'Pre_B', 3: 'Pro_B'}
         predicted_class_name = labels_map[predicted_class.item()]
         confidence_score = confidence.item()
-
-        # Get resource usage after prediction
-        # cpu_usage_after, memory_usage_after = get_cpu_memory_usage()
-        # gpu_memory_allocated_after, gpu_memory_reserved_after = get_gpu_memory_usage()
+        
+        if predicted_class_name in ['Early_Pre_B', 'Pre_B', 'Pro_B']:
+            formatted_class_name = f"Malignant - {predicted_class_name}"
+        else:
+            formatted_class_name = "Benign"
 
         # Display results
         st.subheader("Prediction Results")
-        st.write(f"**Predicted Class:** {predicted_class_name}")
+        st.write(f"**Predicted Class:** {formatted_class_name}")
         st.write(f"**Confidence Score:** {confidence_score:.4f}")
-
+        # Get resource usage after prediction
+        # cpu_usage_after, memory_usage_after = get_cpu_memory_usage()
+        # gpu_memory_allocated_after, gpu_memory_reserved_after = get_gpu_memory_usage()
+        
         # st.subheader("Resource Usage")
         # st.write(f"**CPU Usage Before:** {cpu_usage_before:.2f}%")
         # st.write(f"**Memory Usage Before:** {memory_usage_before:.2f} MB")
